@@ -13,6 +13,6 @@ namespace ProduManApp.Entities
         public int Quantity { get; set; }
 
 
-        public override string ToString() => $"Id: {Id}, Produkt: {ProductName}";
+        public override string ToString() => $"{Id,-5} {OrderNumber,-15} {ProductName,-20} {Quantity,-10}";
     }
 }

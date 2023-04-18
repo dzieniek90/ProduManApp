@@ -8,7 +8,7 @@ namespace ProduManApp.Entities
 {
     public class ServiceOrder : Order
     {
-        public override string ToString() => base.ToString() + " (Zlecenie serwisowe)";
+        public override string ToString() => base.ToString() + "    (Zlecenie serwisowe)";
 
     }
 }

@@ -13,6 +13,8 @@ namespace ProduManApp.Repositories
         private readonly DbSet<T> dbSet;
         private readonly DbContext dbContext;
 
+        public EventHandler<T> ItemAdded;
+        public EventHandler<T> ItemRemoved;
 
         public SqlRepository(DbContext dbContext )
         {
@@ -33,11 +35,14 @@ namespace ProduManApp.Repositories
         public void Add(T item)
         {
             dbSet.Add(item);
+            ItemAdded?.Invoke(this, item);
         }
 
         public void Remove(T item)
         {
             dbSet.Remove(item);
+            ItemRemoved?.Invoke(this, item);
+
         }
 
         public void Save()

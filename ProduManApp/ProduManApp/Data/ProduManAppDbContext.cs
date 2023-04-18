@@ -10,14 +10,14 @@ namespace ProduManApp.Data
 {
     public class ProduManAppDbContext : DbContext
     {
-        public DbSet<Order> Orders => Set<Order>();
-        public DbSet<ComplaintOrder> ComplaintOrders => Set<ComplaintOrder>();
-        public DbSet<ServiceOrder> ServiceOrders => Set<ServiceOrder>();
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<ComplaintOrder> ComplaintOrders { get; set; }
+        public DbSet<ServiceOrder> ServiceOrders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseInMemoryDatabase("ProduManAppDb");
+            optionsBuilder.UseSqlServer("Server=WDZIENKOWSKI\\SQLEXPRESS;DataBase= ProduManApp ; integrated security= true ; Encrypt=False");
         }
     }
 }
