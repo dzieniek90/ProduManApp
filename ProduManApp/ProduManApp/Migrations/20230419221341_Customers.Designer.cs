@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProduManApp.Data;
 
@@ -10,9 +11,11 @@ using ProduManApp.Data;
 namespace ProduManApp.Migrations
 {
     [DbContext(typeof(ProduManAppDbContext))]
-    partial class ProduManAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230419221341_Customers")]
+    partial class Customers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

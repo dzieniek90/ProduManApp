@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ProduManApp.Data;
 using ProduManApp.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,23 @@ namespace ProduManApp.Repositories
     public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
         private readonly DbSet<T> dbSet;
-        private readonly DbContext dbContext;
+        private readonly ProduManAppDbContext dbContext;
 
-        public EventHandler<T> ItemAdded;
-        public EventHandler<T> ItemRemoved;
-
-        public SqlRepository(DbContext dbContext )
+        public SqlRepository(ProduManAppDbContext dbContext )
         {
             this.dbContext = dbContext;
             this.dbSet = dbContext.Set<T>();
+        }
+
+        public EventHandler<T> ItemAdded { get; set; }
+        public EventHandler<T> ItemRemoved { get; set; }
+        public EventHandler<T> ItemEdited{ get; set; }
+
+
+        public void Update(T item)
+        {
+            dbSet.Update(item);
+            ItemEdited?.Invoke(this, item);
         }
 
         public IEnumerable<T> GetAll()

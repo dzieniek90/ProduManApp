@@ -9,6 +9,8 @@ namespace ProduManApp.Repositories
 {
     public interface IRepository<T> :  IReadRepository<T> , IWriteRepository<T>  where T : class, IEntity
     {
-        
+         EventHandler<T> ItemAdded { get; set; }
+         EventHandler<T> ItemRemoved { get; set; }
+         EventHandler<T> ItemEdited { get; set; }
     }
 }

@@ -10,14 +10,25 @@ namespace ProduManApp.Data
 {
     public class ProduManAppDbContext : DbContext
     {
+        public ProduManAppDbContext(DbContextOptions<ProduManAppDbContext> options)
+             : base(options)
+        {
+
+        }
+
         public DbSet<Order> Orders { get; set; }
         public DbSet<ComplaintOrder> ComplaintOrders { get; set; }
         public DbSet<ServiceOrder> ServiceOrders { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=WDZIENKOWSKI\\SQLEXPRESS;DataBase= ProduManApp ; integrated security= true ; Encrypt=False");
+            //modelBuilder.Entity<Order>()
+            //    .HasOne<Customer>(o => o.Customer)
+            //    .WithMany(c => c.Orders)
+            //    .HasForeignKey(o => o.CustomerId)
+            //    .OnDelete(DeleteBehavior.NoAction);
+
         }
-    }
+    } 
 }
