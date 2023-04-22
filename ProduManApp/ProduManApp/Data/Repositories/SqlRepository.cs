@@ -7,22 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProduManApp.Repositories
+namespace ProduManApp.Data.Repositories
 {
     public class SqlRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
         private readonly DbSet<T> dbSet;
         private readonly ProduManAppDbContext dbContext;
 
-        public SqlRepository(ProduManAppDbContext dbContext )
+        public SqlRepository(ProduManAppDbContext dbContext)
         {
             this.dbContext = dbContext;
-            this.dbSet = dbContext.Set<T>();
+            dbSet = dbContext.Set<T>();
         }
 
         public EventHandler<T> ItemAdded { get; set; }
         public EventHandler<T> ItemRemoved { get; set; }
-        public EventHandler<T> ItemEdited{ get; set; }
+        public EventHandler<T> ItemEdited { get; set; }
 
 
         public void Update(T item)

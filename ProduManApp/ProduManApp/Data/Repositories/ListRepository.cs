@@ -5,32 +5,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProduManApp.Repositories
+namespace ProduManApp.Data.Repositories
 {
     public class ListRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
         private readonly List<T> items = new();
 
-        public EventHandler<T> ItemAdded { get ; set; }
+        public EventHandler<T> ItemAdded { get; set; }
         public EventHandler<T> ItemRemoved { get; set; }
         public EventHandler<T> ItemEdited { get; set; }
 
         public void Add(T item)
         {
-            item.Id = items.Count +1;
+            item.Id = items.Count + 1;
             items.Add(item);
         }
 
         public void Update(T item)
         {
             var itemToEdit = items.FirstOrDefault(i => i.Id == item.Id);
-
-            if (itemToEdit == null)
-            {
-                throw new ArgumentException("Item not found in the list.");
-            }
-
-            int index = items.IndexOf(itemToEdit);
+            int index = items.IndexOf(itemToEdit!);
             items[index] = item;
         }
 

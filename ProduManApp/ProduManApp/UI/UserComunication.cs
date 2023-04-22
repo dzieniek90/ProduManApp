@@ -1,8 +1,8 @@
-﻿using ProduManApp.DataProviders;
+﻿using ProduManApp.Components.DataProviders;
+using ProduManApp.Data.Repositories;
 using ProduManApp.Entities;
 using ProduManApp.Extensions;
 using ProduManApp.Helpers;
-using ProduManApp.Repositories;
 
 namespace ProduManApp.UI
 {
@@ -31,7 +31,7 @@ namespace ProduManApp.UI
 
         public void Introduce()
         {
-            Console.WriteLine("Witaj w menadżerze zleceń!");
+            Console.WriteLine("\n\nWitaj w menadżerze zleceń!");
         }
 
         public void SelectAction()

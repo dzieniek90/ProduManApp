@@ -1,13 +1,13 @@
-﻿using ProduManApp.Entities;
+﻿using ProduManApp.Data.Repositories;
+using ProduManApp.Entities;
 using ProduManApp.Helpers;
-using ProduManApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProduManApp.DataProviders
+namespace ProduManApp.Components.DataProviders
 {
     public class OrdersProvider : IOrdersProvider
     {
@@ -25,7 +25,7 @@ namespace ProduManApp.DataProviders
 
         public int GetOrderMaxQuantity()
         {
-            return orders.Select(o=>o.Quantity).Max();
+            return orders.Select(o => o.Quantity).Max();
         }
 
         public IEnumerable<Order> GetFiveOrdersWithHighestQuantity()
@@ -90,7 +90,7 @@ namespace ProduManApp.DataProviders
 
         public IEnumerable<string> GetCustomersWithMoreThanTwoOrders()
         {
-           return orders.GroupBy(o => o.Customer).Where(g => g.Count() > 2).Select(g => g.Key);
+            return orders.GroupBy(o => o.Customer).Where(g => g.Count() > 2).Select(g => g.Key);
         }
 
         public IEnumerable<Order> GetAllOrdersByOrderType(Type orderType)

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProduManApp.DataProviders
+namespace ProduManApp.Components.DataProviders
 {
     public interface IOrdersProvider
     {

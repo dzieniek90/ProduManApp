@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProduManApp.Repositories
+namespace ProduManApp.Data.Repositories
 {
     public interface IReadRepository<out T> where T : class, IEntity
     {
