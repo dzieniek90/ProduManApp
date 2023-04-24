@@ -20,7 +20,6 @@ services.AddSingleton<ICarsUI, CarsUI>();
 services.AddDbContext<ProduManAppDbContext>(options => options
     .UseSqlServer("Server=WDZIENKOWSKI\\SQLEXPRESS;DataBase= ProduManApp ; integrated security= true ; Encrypt=False"));
 
-
 var serviceProvider = services.BuildServiceProvider();
 var app = serviceProvider.GetService<IApp>()!;
 app.Run();

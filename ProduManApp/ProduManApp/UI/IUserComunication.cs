@@ -10,6 +10,8 @@ namespace ProduManApp.UI
     {
         void Closure();
         void Introduce();
+        void ResetCustomerBase();
+        void ResetOrderBase();
         void SelectAction();
     }
 }

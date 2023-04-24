@@ -33,9 +33,9 @@ namespace ProduManApp.Data.Repositories
             return items.ToList();
         }
 
-        public T GetById(int id)
+        public T? GetById(int id)
         {
-            return items.Single(i => i.Id == id);
+            return items.SingleOrDefault(i => i.Id == id);
         }
 
         public void Remove(T item)

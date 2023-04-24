@@ -97,7 +97,5 @@ namespace ProduManApp.Components.DataProviders
         {
             return orders.Where(o => o.GetType() == orderType);
         }
-
-
     }
 }

@@ -36,9 +36,9 @@ namespace ProduManApp.Data.Repositories
             return dbSet.ToList();
         }
 
-        public T GetById(int id)
+        public T? GetById(int id)
         {
-            return dbSet.Find(id);
+            return dbSet.SingleOrDefault(o => o.Id == id);
         }
 
         public void Add(T item)
