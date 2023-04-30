@@ -1,21 +1,12 @@
-﻿using ProduManApp.Components.CsvReader;
+﻿using ProduManApp.Components.DataProviders;
 using ProduManApp.Components.MyXmlWriter;
-using ProduManApp.Components.CsvReader.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Resources;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
-using ProduManApp.Components.DataProviders;
 
 namespace ProduManApp.UI
 {
     public class CarsUI : ICarsUI
     {
-        ICarsProvider _carsProvider;
+        private ICarsProvider _carsProvider;
+
         public CarsUI(ICarsProvider carsProvider)
         {
             _carsProvider = carsProvider;
@@ -68,7 +59,6 @@ namespace ProduManApp.UI
             }
         }
 
-
         private void SaveCarsByAllManufacturersToXml()
         {
             var filePath = "xmlManufacturers.xml";
@@ -77,7 +67,5 @@ namespace ProduManApp.UI
 
             MyXmlWriter.CarsByAllManufacturersToXml(cars, filePath);
         }
-
-
     }
 }
