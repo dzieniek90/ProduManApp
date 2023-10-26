@@ -23,4 +23,3 @@ services.AddDbContext<ProduManAppDbContext>(options => options
 var serviceProvider = services.BuildServiceProvider();
 var app = serviceProvider.GetService<IApp>()!;
 app.Run();
-
