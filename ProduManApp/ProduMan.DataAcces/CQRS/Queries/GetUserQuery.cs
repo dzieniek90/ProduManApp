@@ -3,7 +3,7 @@ using ProduMan.DataAccess.Entities;
 
 namespace ProduMan.DataAccess.CQRS.Queries;
 
-public class GetUserQuery :QueryBase<User>
+public class GetUserQuery :BaseQuery<User>
 {
     public string Username { get; set; }
     

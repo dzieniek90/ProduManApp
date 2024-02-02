@@ -1,0 +1,29 @@
+﻿<Window x:Class="ProduManWPF.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProduManWPF.View"
+        xmlns:vm="clr-namespace:ProduManWPF.ViewModels;assembly=ProduManWPF.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        KeyDown="MainWindow_OnKeyDown"
+        Closed="MainWindow_OnClosed"
+>
+    <Window.Resources>
+                <vm:ColorEditor x:Key="colorEditor" />
+                <local:ByteToDoubleConverter x:Key="byteToDoubleConverter"/>
+                <local:ColorToSolidColorBrushConverter x:Key="colorToSolidColorBrushConverter"/>
+    </Window.Resources>
+        
+    <Grid DataContext="{StaticResource colorEditor}">
+        <Rectangle x:Name="rectangle" Margin="10,10,10,91" Stroke="Black"
+                   Fill="{Binding Color, Converter={StaticResource colorToSolidColorBrushConverter}}"/>
+        <Slider x:Name="sliderR"  Margin="10,0,10,60" VerticalAlignment="Bottom" Height="22" Maximum="255"
+                Value="{Binding R, Mode=TwoWay, Converter={StaticResource byteToDoubleConverter}}" />
+        <Slider x:Name="sliderG" Margin="10,0,10,35" VerticalAlignment="Bottom" Height="22" Maximum="255"
+                Value="{Binding G, Mode=TwoWay, Converter={StaticResource byteToDoubleConverter}}" />
+        <Slider x:Name="sliderB" Margin="10,0,10,10" VerticalAlignment="Bottom" Height="22" Maximum="255"
+                Value="{Binding B, Mode=TwoWay, Converter={StaticResource byteToDoubleConverter}}"/>
+    </Grid>
+</Window>

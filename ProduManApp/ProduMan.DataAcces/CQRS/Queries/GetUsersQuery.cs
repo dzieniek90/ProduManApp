@@ -3,7 +3,7 @@ using ProduMan.DataAccess.Entities;
 
 namespace ProduMan.DataAccess.CQRS.Queries;
 
-public class GetUsersQuery : QueryBase<List<User>>
+public class GetUsersQuery : BaseQuery<List<User>>
 {
     public override Task<List<User>> Execute(ProduManContext context)
     {

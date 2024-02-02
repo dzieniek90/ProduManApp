@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <UserSecretsId>db915fca-ec54-4cf1-8c8f-2237a02061f2</UserSecretsId>
+
+    </PropertyGroup>
+
+
+
+
+
+</Project>

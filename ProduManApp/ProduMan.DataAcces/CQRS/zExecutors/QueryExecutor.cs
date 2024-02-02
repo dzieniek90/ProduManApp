@@ -10,7 +10,7 @@ public class QueryExecutor : IQueryExecutor
     {
         _context = context;
     }
-    public Task<TResult> Execute<TResult>(QueryBase<TResult> query)
+    public Task<TResult> Execute<TResult>(BaseQuery<TResult> query)
     {
         return query.Execute(_context);
     }

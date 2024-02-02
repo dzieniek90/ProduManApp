@@ -3,7 +3,7 @@ using ProduMan.DataAccess.Entities;
 
 namespace ProduMan.DataAccess.CQRS.Queries;
 
-public class GetProductionBatchQuery : QueryBase<ProductionBatch>
+public class GetProductionBatchQuery : BaseQuery<ProductionBatch>
 {
     public int Id { get; set; }
     

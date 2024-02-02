@@ -14,4 +14,6 @@ public class ProduManContext : DbContext
     public DbSet<ReleaseDate> ReleaseDates { get; set; }
     
     public DbSet<User> Users { get; set; }
+
+    public DbSet<Order> Orders { get; set; }
 }
